@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>合同会社ファンネア | ライブ配信 × AIシステム開発</title>
+  <meta name="description" content="合同会社ファンネアは、ライブ配信事業とAIシステム開発事業を手掛ける大阪のITカンパニーです。" />
+  <meta name="format-detection" content="telephone=no" />
+  <style>
+    :root{
+      --bg:#0b0f14;          /* 深めのネイビー */
+      --card:#101621;        /* カード背景 */
+      --text:#e6edf3;        /* メイン文字 */
+      --muted:#9db0c3;       /* 補助文字 */
+      --brand:#5dc2ff;       /* アクセント */
+      --brand2:#7a6cff;      /* サブアクセント */
+      --line:#223047;        /* ボーダー */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: "Hiragino Sans","Noto Sans JP",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 800px at 80% -10%, rgba(93,194,255,.12), transparent),
+                         radial-gradient(900px 600px at -10% 10%, rgba(122,108,255,.10), transparent),
+                         var(--bg);
+      letter-spacing:.02em; line-height:1.8;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{opacity:.9}
+    .container{width:min(1120px, 92vw); margin:0 auto}
+
+    /* Header */
+    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(6px); background:rgba(11,15,20,.65); border-bottom:1px solid var(--line); z-index:50}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.04em}
+    .logo-mark{width:28px; height:28px; border-radius:8px; background: conic-gradient(from 180deg, var(--brand), var(--brand2)); box-shadow:0 0 24px rgba(93,194,255,.25)}
+    .nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+    .nav a{color:var(--text); opacity:.9}
+
+    /* Hero */
+    .hero{position:relative; padding:88px 0 72px; overflow:hidden;}
+    .hero h1{font-size:clamp(28px, 4.8vw, 48px); line-height:1.25; margin:0 0 12px}
+    .hero p{color:var(--muted); margin:0 0 28px}
+    .cta{display:inline-block; background:linear-gradient(135deg, var(--brand), var(--brand2)); color:#0b0f14; font-weight:700; padding:14px 22px; border-radius:999px; box-shadow:var(--shadow)}
+    .hero-card{margin-top:26px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:center}
+    .glass{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--line); border-radius:var(--radius);
+      padding:18px; box-shadow:var(--shadow)
+    }
+
+    /* Services */
+    section{padding:72px 0}
+    h2{font-size:clamp(22px,3.6vw,32px); margin:0 0 10px}
+    .lead{color:var(--muted); margin:0 0 28px}
+    .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px; font-size:18px}
+    .tag{display:inline-block; font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted)}
+    .bullets{margin:14px 0 0; padding-left:18px}
+
+    /* About */
+    .about{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .about .info{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+    .kv{aspect-ratio:16/10; border-radius:var(--radius); border:1px dashed var(--line); display:grid; place-items:center; color:var(--muted)}
+
+    /* Address */
+    .address{display:grid; grid-template-columns:1.2fr .8fr; gap:24px}
+    .addr-box{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:14px}
+    .map{
+      aspect-ratio: 4/3; width:100%; border:0; border-radius:var(--radius);
+      background:repeating-linear-gradient(135deg, #152033 0 12px, #0f1726 12px 24px);
+      display:grid; place-items:center; color:var(--muted)
+    }
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); padding:22px 0 36px; color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 880px){
+      .hero-grid, .cards, .about, .address{grid-template-columns:1fr}
+      .nav ul{gap:14px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><span class="logo-mark"></span><span>合同会社ファンネア</span></div>
+      <nav>
+        <ul>
+          <li><a href="#services">事業</a></li>
+          <li><a href="#about">会社概要</a></li>
+          <li><a href="#address">所在地</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>ライブ配信 × AIで、<br>“ファンが育つ”体験をつくる。</h1>
+          <p class="lead">合同会社ファンネアは、ライブ配信事業とAIシステム開発事業を軸に、
+            企画・制作・運用からプロダクト開発まで一気通貫で支援する大阪発のITカンパニーです。</p>
+          <a class="cta" href="#contact">まずは相談する（無料）</a>
+          <div class="hero-card">
+            <div class="tag">お知らせ</div>
+            <p style="margin:8px 0 0; color:var(--muted)">ウェブサイトは現在ベータ版です。随時コンテンツを拡充しています。</p>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="kv">Visual Placeholder / Key Visual</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <h2>事業紹介</h2>
+        <p class="lead">ライブ配信領域の実務知見と、AI/クラウドの開発力で、企画から運用・分析まで伴走します。</p>
+        <div class="cards">
+          <article class="card">
+            <div class="tag">ライブ配信事業</div>
+            <h3>番組設計 / 配信運用 / モデレーション</h3>
+            <p style="margin:0">プラットフォーム選定、番組設計、KPI設計、権利管理、収益化まで。スタジオ・リモートどちらにも対応。</p>
+            <ul class="bullets">
+              <li>配信設計（OBS/専用エンコーダ）</li>
+              <li>モデレーション体制構築</li>
+              <li>投げ銭/サブスク導線最適化</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="tag">AIシステム開発</div>
+            <h3>自社/受託のAI・Web開発</h3>
+            <p style="margin:0">LLM・レコメンド・チャットボット・自動要約など、現場活用に効くプロダクトをスピーディに実装。</p>
+            <ul class="bullets">
+              <li>要件定義 / UI設計 / API開発</li>
+              <li>クラウド（GCP/AWS）運用</li>
+              <li>データ可視化・効果検証</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container about">
+        <div class="info">
+          <h2>会社概要</h2>
+          <p class="lead">ITっぽいおしゃれでミニマルな会社。必要十分に軽く、でも芯は強く。</p>
+          <table style="width:100%; border-collapse:separate; border-spacing:0 10px">
+            <tr>
+              <td style="color:var(--muted); width:160px">会社名</td>
+              <td>合同会社ファンネア（Funnea LLC）</td>
+            </tr>
+            <tr>
+              <td style="color:var(--muted)">事業内容</td>
+              <td>ライブ配信事業 / AIシステム開発事業</td>
+            </tr>
+            <tr>
+              <td style="color:var(--muted)">拠点</td>
+              <td>大阪市中央区（フルリモート対応）</td>
+            </tr>
+          </table>
+        </div>
+        <div class="info">
+          <h2>バリュー</h2>
+          <ul class="bullets" style="margin:0">
+            <li><strong>Small & Sharp：</strong>小さく鋭く、早く価値検証</li>
+            <li><strong>Fan First：</strong>ファン体験を最優先</li>
+            <li><strong>Trust by Design：</strong>権利・安全・運用を設計に内包</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Address -->
+    <section id="address">
+      <div class="container address">
+        <div class="addr-box">
+          <h2>所在地</h2>
+          <p class="mono">
+            〒542-0081<br>
+            大阪府大阪市中央区南船場3丁目2番22号 おおきに南船場ビル205
+          </p>
+          <p class="lead" style="margin-top:8px">※来訪は事前アポイント制です。オンライン打合せ歓迎。</p>
+        </div>
+        <div>
+          <div class="map">Map Placeholder</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2>お問い合わせ</h2>
+        <p class="lead">ご相談ベースでお気軽にご連絡ください。1〜2営業日以内にお返事します。</p>
+        <form class="card" onsubmit="return false" aria-label="お問い合わせフォーム（デモ）">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+            <label>お名前<br><input required placeholder="山田 太郎" style="width:100%; padding:12px 14px; background:#0d1320; color:var(--text); border:1px solid var(--line); border-radius:10px"></label>
+            <label>メールアドレス<br><input type="email" required placeholder="you@example.com" style="width:100%; padding:12px 14px; background:#0d1320; color:var(--text); border:1px solid var(--line); border-radius:10px"></label>
+          </div>
+          <label style="display:block; margin-top:14px">ご用件<br>
+            <textarea rows="5" placeholder="ご相談内容をご記入ください" style="width:100%; padding:12px 14px; background:#0d1320; color:var(--text); border:1px solid var(--line); border-radius:10px"></textarea>
+          </label>
+          <div style="margin-top:16px; display:flex; gap:12px; align-items:center">
+            <button class="cta" type="button">送信（デモ）</button>
+            <span style="color:var(--muted); font-size:14px">※デモのため送信されません。実装時にエンドポイントを接続します。</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap">
+      <div>© <span id="y"></span> 合同会社ファンネア</div>
+      <div style="display:flex; gap:16px">
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">特定商取引法に基づく表記</a>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  </footer>
+</body>
+</html>
